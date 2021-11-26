@@ -82,6 +82,7 @@ public class SimulacaoSistemaOperacional {
         }
         
         System.out.println("---------------------------");
+        System.out.println("Ordem em que os processos foram finalizados: ");
         System.out.println(processosFinalizados);
         
     }
