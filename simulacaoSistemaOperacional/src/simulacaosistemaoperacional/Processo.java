@@ -23,9 +23,9 @@ public class Processo {
     private int nes;
     private int nCpu;
     private int qtdCiclos;
+    private boolean isFinish = false;
     
     public void executar(){
-        this.nCpu++;
  
         if(this.tp == this.qtdCiclos){
             return;
@@ -43,10 +43,12 @@ public class Processo {
         }
         
         setEp(EXECUTANDO);
+        this.nCpu++;
 
         for(int i=0; i < 1000; i++){
            
             if(this.tp == this.qtdCiclos){
+                this.isFinish = true;
                 System.out.println(this);
                 setEp(PRONTO);
 
@@ -78,6 +80,9 @@ public class Processo {
         this.qtdCiclos = qtdCiclos;
     }
     
+    public boolean isFinish(){
+        return this.isFinish;
+    }
     
     public String getEp() {
         return ep;

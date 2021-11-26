@@ -49,13 +49,40 @@ public class SimulacaoSistemaOperacional {
         Processo processo9 = new Processo(9,10000);
         processos.add(processo9);
         
-        Processo processo = processo8;
-        
-        while(processo.getTp() != processo.getQtdCiclos()){
-            processo.executar();
-            System.out.println(processo.getTp());
+        ArrayList<Integer> processosFinalizados = new ArrayList<>();
+        int contador = 0;
+
+        while(processosFinalizados.size() != processos.size()){
             
+            Processo processo = processos.get(contador);
+            
+//            Vefica se o processo já terminou
+            if(!processo.isFinish()){
+                processo.executar();
+                
+//                Verificar se após o método executar rodar ele terminou sua operação
+                if(processo.isFinish()){
+                    processosFinalizados.add(processo.getPid());
+                }
+
+            }
+            
+           
+            if(contador == processos.size()-1){
+                contador = 0;
+            }else{
+                contador ++;
+            }
+
         }
+        
+        System.out.println("----------------------------");
+        for(Processo processo: processos){
+            System.out.println(processo);
+        }
+        
+        System.out.println("---------------------------");
+        System.out.println(processosFinalizados);
         
     }
     
