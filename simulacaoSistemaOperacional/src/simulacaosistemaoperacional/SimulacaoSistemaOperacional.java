@@ -49,14 +49,13 @@ public class SimulacaoSistemaOperacional {
         Processo processo9 = new Processo(9,10000);
         processos.add(processo9);
         
-        while(processo0.getTp() != processo0.getQtdCiclos()){
-            processo0.executar();
-            System.out.println(processo0.getTp());
+        Processo processo = processo8;
+        
+        while(processo.getTp() != processo.getQtdCiclos()){
+            processo.executar();
+            System.out.println(processo.getTp());
             
         }
-        
-        System.out.println(processo0);
-
         
     }
     

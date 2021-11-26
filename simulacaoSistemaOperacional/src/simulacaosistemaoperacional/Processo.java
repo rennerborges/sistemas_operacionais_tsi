@@ -47,6 +47,9 @@ public class Processo {
         for(int i=0; i < 1000; i++){
            
             if(this.tp == this.qtdCiclos){
+                System.out.println(this);
+                setEp(PRONTO);
+
                 return;
             }
             
@@ -57,9 +60,10 @@ public class Processo {
             }
             
             ++this.tp;
-            this.cp = ++this.tp;
+            this.cp = this.tp+1;
             
         }
+
         setEp(PRONTO);
 
     }
@@ -80,6 +84,7 @@ public class Processo {
     }
 
     public void setEp(String ep) {
+        System.out.println(this);
         System.out.println(this.ep + " >>>> " + ep);
         this.ep = ep;
     }
