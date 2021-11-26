@@ -25,7 +25,8 @@ public class Processo {
     private int qtdCiclos;
     
     public void executar(){
-        
+        this.nCpu++;
+ 
         if(this.tp == this.qtdCiclos){
             return;
         }
@@ -43,7 +44,7 @@ public class Processo {
         
         setEp(EXECUTANDO);
 
-        for(int i =0; i < 1000; i++){
+        for(int i=0; i < 1000; i++){
            
             if(this.tp == this.qtdCiclos){
                 return;
@@ -51,6 +52,7 @@ public class Processo {
             
             if(randomNumber(100) <= 5){
                 setEp(BLOQUEADO);
+                this.nes++;
                 return;
             }
             
