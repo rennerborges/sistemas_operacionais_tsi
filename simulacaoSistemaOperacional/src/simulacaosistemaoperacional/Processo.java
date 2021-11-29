@@ -91,6 +91,7 @@ public class Processo {
     public void setEp(String ep) {
         System.out.println(this);
         System.out.println(this.ep + " >>>> " + ep);
+        TabelaProcessos.add(this);
         this.ep = ep;
     }
 
@@ -196,4 +197,5 @@ public class Processo {
         return "Processo{" + "ep=" + ep + ", pid=" + pid + ", tp=" + tp + ", cp=" + cp + ", nes=" + nes + ", nCpu=" + nCpu + ", qtdCiclos=" + qtdCiclos + '}';
     }
 
+    
 }
