@@ -8,10 +8,15 @@ package simulacaosemaforo;
  *
  * @author renner
  */
-public class Semaforo {
-    private static int full = 0;
-    private static int empty = Buffer.MAX_SIZE_BUFFER;
-    private static boolean mutex = false;
-
+public class Produtor extends Processo {
+    
+    public Produtor(int pid) {
+        super(pid);
+    }
+    
+    @Override
+    public void executar(){
+        System.out.println("Produtor");
+    }
     
 }
