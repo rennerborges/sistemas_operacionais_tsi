@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author renner
  */
 public class Buffer {
-    private static int MAX_SIZE_BUFFER = 3;
+    public static final int MAX_SIZE_BUFFER = 3;
     private static ArrayList<String> buffers = new ArrayList<>();
     private static int identificador = 1;
     
@@ -36,5 +36,9 @@ public class Buffer {
     
     public static int getIdentificador(){
         return identificador;
+    }
+    
+    public static void list(){
+        System.out.println(buffers);
     }
 }

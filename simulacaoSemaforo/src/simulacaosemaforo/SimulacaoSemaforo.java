@@ -15,7 +15,18 @@ public class SimulacaoSemaforo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Buffer.add("awda3d");
+        Processo produtor = new Produtor(1);
+        Processo consumidor = new Consumidor(2);
+        Processo cpu = produtor;
+        
+        for(int i = 0; i < 1000; i++){
+            
+//            Verificar se o processo está em wackup;
+//            cpu.executar();
+//            70% de chances de ser um processo produtor se o mesmo estiver em sleep chama o consumidor a mesma coisa no contrário
+        }
+
+
     }
     
 }
