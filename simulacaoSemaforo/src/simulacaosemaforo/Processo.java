@@ -40,7 +40,7 @@ public abstract class Processo {
         this.situacao = WAKUP;
     }
     
-    private void setEstado(String estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -60,6 +60,16 @@ public abstract class Processo {
         this.pid = pid;
     }
 
+    public int getProcesso() {
+        return processo;
+    }
+
+    public void setProcesso(int processo) {
+        this.processo = processo;
+    }
+
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;

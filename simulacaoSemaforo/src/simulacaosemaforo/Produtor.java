@@ -16,7 +16,41 @@ public class Produtor extends Processo {
     
     @Override
     public void executar(){
-        System.out.println("Produtor");
+        try {
+            int processo = super.getProcesso();
+            
+            if(processo == 0){
+                Semaforos.downEmpty();
+                super.setEstado(EXECUTANDO);
+            }
+            
+            if(processo == 1){
+                Semaforos.alterMutex();
+            }
+            
+            if(processo == 2){
+                Buffer.add("D"+ Buffer.getIdentificador());
+            }
+            
+            if(processo == 3){
+                Semaforos.alterMutex();
+            }
+            
+            if(processo == 4){
+                Semaforos.addFull();
+                super.setEstado(PRONTO);
+
+                setProcesso(0);
+                
+                return;
+                
+            }
+             
+            super.setProcesso(++processo);
+            
+        } catch (Exception e) {
+            this.setSleep();
+        }
     }
     
 }

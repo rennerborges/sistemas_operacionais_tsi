@@ -15,18 +15,19 @@ public class SimulacaoSemaforo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Processo produtor = new Produtor(1);
-        Processo consumidor = new Consumidor(2);
+        Produtor produtor = new Produtor(1);
+        Consumidor consumidor = new Consumidor(2);
+        Semaforos.init(produtor, consumidor);
+        
         Processo cpu = produtor;
         
-        for(int i = 0; i < 1000; i++){
-            
+        for(int i = 0; i < 25; i++){
+              produtor.executar();
 //            Verificar se o processo está em wackup;
 //            cpu.executar();
 //            70% de chances de ser um processo produtor se o mesmo estiver em sleep chama o consumidor a mesma coisa no contrário
         }
-
-
+        System.out.println(produtor);
     }
     
 }
