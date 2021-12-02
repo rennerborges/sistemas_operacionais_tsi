@@ -105,7 +105,7 @@ public abstract class Processo {
 
     @Override
     public String toString() {
-        return "Processo{" + "estado=" + estado + ", situacao=" + situacao + ", pid=" + pid + '}';
+        return "Processo{" + "estado=" + estado + ", situacao=" + situacao + ", pid=" + pid + ", processo=" + processo + '}';
     }
     
 }

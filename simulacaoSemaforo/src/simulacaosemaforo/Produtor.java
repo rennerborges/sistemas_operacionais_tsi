@@ -16,6 +16,10 @@ public class Produtor extends Processo {
     
     @Override
     public void executar(){
+        if(super.getSituacao().equals(SLEEP)){
+            throw new RuntimeException("Esse processo está dormindo");
+        }
+        
         try {
             int processo = super.getProcesso();
             

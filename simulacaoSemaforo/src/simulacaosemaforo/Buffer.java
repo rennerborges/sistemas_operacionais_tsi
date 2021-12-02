@@ -34,11 +34,24 @@ public class Buffer {
         
     }
     
+    public static void removeLastPosition(){
+        if(buffers.size() == 0){
+            throw new RuntimeException("O Buffer já está vazio"); 
+        }
+        
+        int index = buffers.size() - 1;
+        buffers.remove(index);
+    }
+    
     public static int getIdentificador(){
         return identificador;
     }
     
     public static void list(){
         System.out.println(buffers);
+    }
+    
+    public static void print(){
+        System.out.println("buffers= " + buffers +", size = " + buffers.size());
     }
 }

@@ -26,14 +26,10 @@ public class Semaforos {
     }
     
     public static void downFull(){
-        if(full == 0){
+        if(full == 0){          
             throw new RuntimeException("O semafóro full já está vazio");
         }
-        
-        if(full == Buffer.MAX_SIZE_BUFFER){
-            produtor.setWakup();
-        }
-        
+         
         --full;
     }
     
@@ -41,7 +37,10 @@ public class Semaforos {
         if(full == Buffer.MAX_SIZE_BUFFER){
             throw new RuntimeException("O semafóro full já está cheio");
         }
-        
+  
+        if(consumidor.getSituacao().equals(Processo.SLEEP)){
+            consumidor.setWakup();
+        }
         
         ++full;
     }
@@ -51,23 +50,31 @@ public class Semaforos {
             throw new RuntimeException("O semafóro empty já está vazio");
         }
         
-        --full;
+        --empty;
     }
     
     public static void addEmpty(){
         if(empty == Buffer.MAX_SIZE_BUFFER){
             throw new RuntimeException("O semafóro empty já está cheio");
         }
-        
-        if(empty == 0){
-            consumidor.setWakup();
+          
+        if(produtor.getSituacao().equals(Processo.SLEEP)){
+            produtor.setWakup();
         }
         
-        
-        ++full;
+        ++empty;
     }
     
     public static void alterMutex(){
         mutex = !mutex;
     }
+    
+    public static void print(){
+        System.out.println("------- Semafóros -------");
+        System.out.println("full = " + full);
+        System.out.println("empty = " + empty);
+        System.out.println("mutex = " + mutex);
+
+    }
+
 }
