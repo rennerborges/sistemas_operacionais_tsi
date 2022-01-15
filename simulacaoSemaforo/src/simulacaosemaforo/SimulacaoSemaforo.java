@@ -23,7 +23,7 @@ public class SimulacaoSemaforo {
         
         Processo cpu = produtor;
          
-        for(int i = 1; i < 1000; i++){
+        for(int i = 1; i < 3000; i++){
             if(cpu.getSituacao().equals(Processo.WAKUP)){
               cpu.executar();
             }
@@ -34,7 +34,7 @@ public class SimulacaoSemaforo {
             
             int processoEscolhido;
             
-            if(randomNumber(100) >= 20){
+            if(randomNumber(100) <= 70){
                 processoEscolhido = 1;
                 cpu = produtor;
             }else{

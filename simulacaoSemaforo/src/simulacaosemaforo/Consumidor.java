@@ -52,7 +52,6 @@ public class Consumidor extends Processo {
             super.setProcesso(++processo);
             
         } catch (Exception e) {
-            System.out.println("sleep");
             this.setSleep();
         }
     }   
