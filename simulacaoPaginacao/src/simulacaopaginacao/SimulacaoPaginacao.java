@@ -50,7 +50,6 @@ public class SimulacaoPaginacao {
         
         for (int i = 0; i < instrucoesMemoria.size(); i++) {
             int instrucao = instrucoesMemoria.get(i);
-            System.out.println("instrucao" + instrucao);
             int indexDisco = instrucao - 1;
            
             memoriaRam[i][N] = disco[indexDisco][N];
@@ -60,7 +59,28 @@ public class SimulacaoPaginacao {
             memoriaRam[i][M] = disco[indexDisco][M];
         }
         
-        System.out.println(memoriaRam[0][N]);
+        //O for começa aqui
+        
+        
+        
+//        Gerando uma instrução aleatória
+        int instrucao = randomNumber(100);
+        int indexDisco = instrucao - 1;
+        
+//        Verificando se ela está na memória
+        if(getValueByArrayList(instrucoesMemoria,instrucao) == 0){
+            System.out.println("Ela não está na memória");
+        }else{
+            int index = getIndexByArrayList(instrucoesMemoria,instrucao);
+            
+            memoriaRam[index][R] = 1;
+            
+            if(randomNumber(100) <= 30){
+                memoriaRam[index][M] = 1;
+                memoriaRam[index][D] += 1;
+            }
+        }
+       
     }
     
     public static int randomNumber(int maxNumber){
@@ -83,4 +103,14 @@ public class SimulacaoPaginacao {
         }
         return 0;
     }
+
+    public static int getIndexByArrayList(ArrayList<Integer> array,int instrucao){
+        for (int i = 0; i < array.size(); i++) {
+            if(array.get(i) == instrucao){
+                return i;
+            }
+        }
+        return 0;
+    }
+
 }
