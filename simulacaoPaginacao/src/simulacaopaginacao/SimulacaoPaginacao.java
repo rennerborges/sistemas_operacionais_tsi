@@ -15,7 +15,7 @@ public class SimulacaoPaginacao {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
-
+    public static final String ANSI_CYAN = "\u001B[36m";
     
     public static final int N = 0;
     public static final int I = 1;
@@ -64,6 +64,9 @@ public class SimulacaoPaginacao {
             memoriaRam[i][M] = disco[indexDisco][M];
         }
         
+        printMatrizes(disco, "Disco");
+        printMatrizes(memoriaRam, "Memória Ram");
+        
         for(int i = 0; i < 500; i++){
 //             Gerando uma instrução aleatória
             int instrucao = randomNumber(100);
@@ -105,7 +108,8 @@ public class SimulacaoPaginacao {
             }
         }
         
-    
+        printMatrizes(disco, "Disco");
+        printMatrizes(memoriaRam, "Memória Ram");
        
     }
     
@@ -139,4 +143,15 @@ public class SimulacaoPaginacao {
         return 0;
     }
 
+    public static void printMatrizes(int [][] matriz, String nome){
+        System.out.println(ANSI_CYAN + "----- Começando impressão da matriz " + nome + "-----" + ANSI_RESET);
+        for (int i = 0; i < matriz.length; i++) {
+            int[] pagina = matriz[i];
+            
+            System.out.println("N: " + pagina[N] + ", I: " + pagina[I] + ", D: " + pagina[D] + ", R: " + pagina[R] + ", M: " + pagina[M]);
+        }
+        System.out.println(ANSI_CYAN + "----- Finalizando impressão da matriz " + nome + "-----" + ANSI_RESET);
+
+    }
+    
 }
