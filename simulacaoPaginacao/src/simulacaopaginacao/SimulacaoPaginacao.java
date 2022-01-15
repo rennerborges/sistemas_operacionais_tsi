@@ -71,20 +71,28 @@ public class SimulacaoPaginacao {
 
 //            Verificando se ela está na memória
             if(getValueByArrayList(instrucoesMemoria,instrucao) == 0){
-                System.out.println(ANSI_YELLOW + "Ela não está na memória!" + ANSI_RESET + i);
-
+                System.out.println(ANSI_YELLOW + "A instrução " + instrucao +" não está na memória!" + ANSI_RESET + " " + i);
+                System.out.println("Instruções na memória: " + instrucoesMemoria);
+                System.out.println("-------------"); 
+               
 //                Execução do NRU
-//                NRU.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+                  NRU.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
                   
 ////              Execução do FIFO
-//                FIFO.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+//                  FIFO.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
 
 
 //                Execução do FIFO-SC
                   FIFOSC.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
 
+//                Execução do FIFO-SC
+//                  Relogio.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+
+
             }else{
-                System.out.println(ANSI_GREEN + "Ela está na memória!"  + ANSI_RESET +i);
+                System.out.println(ANSI_GREEN + "A instrução " + instrucao + " está na memória!"  + ANSI_RESET + " " + i);
+                System.out.println("Instruções na memória: " + instrucoesMemoria);
+                System.out.println("-------------");
 
                 int index = getIndexByInstrucao(memoriaRam, instrucao);
 
