@@ -12,6 +12,11 @@ import java.util.Random;
  * @author renner
  */
 public class SimulacaoPaginacao {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+
+    
     public static final int N = 0;
     public static final int I = 1;
     public static final int D = 2;
@@ -66,12 +71,21 @@ public class SimulacaoPaginacao {
 
 //            Verificando se ela está na memória
             if(getValueByArrayList(instrucoesMemoria,instrucao) == 0){
-                System.out.println("Ela não está na memória");
+                System.out.println(ANSI_YELLOW + "Ela não está na memória!" + ANSI_RESET + i);
 
 //                Execução do NRU
-                NRU.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+//                NRU.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+                  
+////              Execução do FIFO
+//                FIFO.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
+
+
+//                Execução do FIFO-SC
+                  FIFOSC.execute(disco, memoriaRam, instrucoesMemoria, instrucao);
 
             }else{
+                System.out.println(ANSI_GREEN + "Ela está na memória!"  + ANSI_RESET +i);
+
                 int index = getIndexByInstrucao(memoriaRam, instrucao);
 
                 memoriaRam[index][R] = 1;
@@ -80,7 +94,7 @@ public class SimulacaoPaginacao {
                     memoriaRam[index][M] = 1;
                     memoriaRam[index][D] += 1;
                 }
-        }
+            }
         }
         
     
